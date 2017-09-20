@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "Sisesta faili nimi"
+read fail
+input="./$fail"
+while IFS= read line
+do
+
+# Command that adds user without password
+echo `adduser --disabled-password --gecos "" $line`
+echo "$line"
+done < "$fail"

@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "Sisesta fail"
+read fail
+input=".$fail"
+IFS=$'\n'
+for i in $fail
+do
+kasutaja=$(echo $i | cut -d ":" -f1)
+echo 'useradd $kasutaja'
+parool=$(echo $i | cut -d ":" -f2)
+echo -e "$parool\n$parool" | passwd $kasutaja
+done
